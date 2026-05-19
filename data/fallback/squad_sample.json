@@ -1,0 +1,605 @@
+{
+  "version": "v2.0",
+  "data": [
+    {
+      "title": "George Washington",
+      "paragraphs": [
+        {
+          "context": "George Washington (February 22, 1732 \u2013 December 14, 1799) was an American Founding Father, military officer, and politician who served as the first president of the United States from 1789 to 1797. Appointed by the Continental Congress as commander of the Continental Army, Washington led the Patriot forces to victory in the American Revolutionary War and served as president of the Constitutional Convention in 1787, which drafted the current Constitution of the United States. Washington has been called the Father of the Nation for his manifold leadership in the formative days of the country. Washington was born on February 22, 1732, at Popes Creek in Westmoreland County, Virginia. He was raised in colonial Virginia and became a surveyor. He inherited Mount Vernon and married Martha Dandridge Custis. During the American Revolution, Washington commanded the Continental Army from 1775 to 1783. After the war he resigned his commission and retired to Mount Vernon.",
+          "qas": [
+            {
+              "id": "George_Washington_0",
+              "question": "When was George Washington born?",
+              "answers": [
+                {
+                  "text": "February 22, 1732",
+                  "answer_start": 19
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_1",
+              "question": "What was George Washington's role in the American Revolution?",
+              "answers": [
+                {
+                  "text": "commander of the Continental Army",
+                  "answer_start": 239
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_2",
+              "question": "When did Washington serve as president?",
+              "answers": [
+                {
+                  "text": "1789 to 1797",
+                  "answer_start": 184
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_3",
+              "question": "Where was George Washington born?",
+              "answers": [
+                {
+                  "text": "Popes Creek in Westmoreland County, Virginia",
+                  "answer_start": 643
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_4",
+              "question": "What estate did Washington inherit?",
+              "answers": [
+                {
+                  "text": "Mount Vernon",
+                  "answer_start": 760
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_5",
+              "question": "Who did Washington marry?",
+              "answers": [
+                {
+                  "text": "Martha Dandridge Custis",
+                  "answer_start": 785
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_6",
+              "question": "When did Washington command the Continental Army?",
+              "answers": [
+                {
+                  "text": "1775 to 1783",
+                  "answer_start": 889
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_7",
+              "question": "What convention did Washington preside over in 1787?",
+              "answers": [
+                {
+                  "text": "Constitutional Convention",
+                  "answer_start": 384
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_8",
+              "question": "What title has Washington been given?",
+              "answers": [
+                {
+                  "text": "Father of the Nation",
+                  "answer_start": 511
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "George_Washington_9",
+              "question": "When did George Washington die?",
+              "answers": [
+                {
+                  "text": "December 14, 1799",
+                  "answer_start": 39
+                }
+              ],
+              "is_impossible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "France",
+      "paragraphs": [
+        {
+          "context": "France, officially the French Republic, is a country located primarily in Western Europe. Its metropolitan area extends from the Rhine to the Atlantic Ocean and from the Mediterranean Sea to the English Channel and the North Sea. France borders Belgium, Luxembourg, Germany, Switzerland, Monaco, Italy, Andorra, and Spain. Its overseas territories include French Guiana in South America and several islands in the Atlantic, Pacific, and Indian Oceans. France has a population of about 68 million and its capital and largest city is Paris. French is the official language. France is a unitary semi-presidential republic. The current president is Emmanuel Macron. France is a founding member of the European Union and a permanent member of the United Nations Security Council.",
+          "qas": [
+            {
+              "id": "France_0",
+              "question": "What is the capital of France?",
+              "answers": [
+                {
+                  "text": "Paris",
+                  "answer_start": 532
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_1",
+              "question": "What is the official language of France?",
+              "answers": [
+                {
+                  "text": "French",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_2",
+              "question": "What is France's population approximately?",
+              "answers": [
+                {
+                  "text": "68 million",
+                  "answer_start": 485
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_3",
+              "question": "Who is the current president of France?",
+              "answers": [
+                {
+                  "text": "Emmanuel Macron",
+                  "answer_start": 645
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_4",
+              "question": "What type of government does France have?",
+              "answers": [
+                {
+                  "text": "unitary semi-presidential republic",
+                  "answer_start": 584
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_5",
+              "question": "Which ocean borders France to the west?",
+              "answers": [
+                {
+                  "text": "Atlantic Ocean",
+                  "answer_start": 142
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_6",
+              "question": "Which country borders France to the northeast?",
+              "answers": [
+                {
+                  "text": "Belgium",
+                  "answer_start": 245
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_7",
+              "question": "What sea is to the south of France?",
+              "answers": [
+                {
+                  "text": "Mediterranean Sea",
+                  "answer_start": 170
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_8",
+              "question": "Is France a member of the European Union?",
+              "answers": [
+                {
+                  "text": "founding member",
+                  "answer_start": 674
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "France_9",
+              "question": "What is France's full official name?",
+              "answers": [
+                {
+                  "text": "French Republic",
+                  "answer_start": 23
+                }
+              ],
+              "is_impossible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "William Shakespeare",
+      "paragraphs": [
+        {
+          "context": "William Shakespeare (baptised 26 April 1564 \u2013 23 April 1616) was an English playwright, poet and actor. He is widely regarded as the greatest writer in the English language and the world's pre-eminent dramatist. Shakespeare produced most of his known works between 1589 and 1613. His early plays were primarily comedies and histories. He then wrote mainly tragedies until 1608, including Hamlet, Othello, King Lear, and Macbeth. In the last phase of his life he wrote tragicomedies and collaborated with other playwrights. Shakespeare wrote Romeo and Juliet, a tragedy about two young star-crossed lovers. He was born and raised in Stratford-upon-Avon, Warwickshire. Shakespeare married Anne Hathaway at age 18. He died on 23 April 1616 at the age of 52.",
+          "qas": [
+            {
+              "id": "William_Shakespeare_0",
+              "question": "Who wrote Romeo and Juliet?",
+              "answers": [
+                {
+                  "text": "William Shakespeare",
+                  "answer_start": 0
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_1",
+              "question": "Where was Shakespeare born?",
+              "answers": [
+                {
+                  "text": "Stratford-upon-Avon",
+                  "answer_start": 632
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_2",
+              "question": "When did Shakespeare die?",
+              "answers": [
+                {
+                  "text": "23 April 1616",
+                  "answer_start": 46
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_3",
+              "question": "Who did Shakespeare marry?",
+              "answers": [
+                {
+                  "text": "Anne Hathaway",
+                  "answer_start": 687
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_4",
+              "question": "Name a Shakespeare tragedy.",
+              "answers": [
+                {
+                  "text": "Hamlet",
+                  "answer_start": 388
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_5",
+              "question": "What was Shakespeare's profession?",
+              "answers": [
+                {
+                  "text": "playwright, poet and actor",
+                  "answer_start": 76
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_6",
+              "question": "When was Shakespeare baptised?",
+              "answers": [
+                {
+                  "text": "26 April 1564",
+                  "answer_start": 30
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_7",
+              "question": "What type of play is Romeo and Juliet?",
+              "answers": [
+                {
+                  "text": "tragedy",
+                  "answer_start": 561
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_8",
+              "question": "In which county was Shakespeare born?",
+              "answers": [
+                {
+                  "text": "Warwickshire",
+                  "answer_start": 653
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "William_Shakespeare_9",
+              "question": "During what period did Shakespeare write most works?",
+              "answers": [
+                {
+                  "text": "1589 and 1613",
+                  "answer_start": 265
+                }
+              ],
+              "is_impossible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Python (programming language)",
+      "paragraphs": [
+        {
+          "context": "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured, object-oriented and functional programming. Python was conceived in the late 1980s by Guido van Rossum at Centrum Wiskunde & Informatica (CWI) in the Netherlands. Python 2.0 was released in 2000. Python 3.0, a major revision, was released in 2008. Python consistently ranks as one of the most popular programming languages. The Python Package Index (PyPI) hosts thousands of third-party modules. Python is widely used in data science, web development, automation, and artificial intelligence.",
+          "qas": [
+            {
+              "id": "Python_programming_language_0",
+              "question": "Who created Python?",
+              "answers": [
+                {
+                  "text": "Guido van Rossum",
+                  "answer_start": 356
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_1",
+              "question": "Where was Python conceived?",
+              "answers": [
+                {
+                  "text": "Centrum Wiskunde & Informatica (CWI) in the Netherlands",
+                  "answer_start": 376
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_2",
+              "question": "When was Python 3.0 released?",
+              "answers": [
+                {
+                  "text": "2008",
+                  "answer_start": 512
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_3",
+              "question": "What does Python emphasize in its design?",
+              "answers": [
+                {
+                  "text": "code readability",
+                  "answer_start": 95
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_4",
+              "question": "What is PyPI?",
+              "answers": [
+                {
+                  "text": "Python Package Index",
+                  "answer_start": 598
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_5",
+              "question": "Is Python dynamically typed?",
+              "answers": [
+                {
+                  "text": "dynamically typed",
+                  "answer_start": 163
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_6",
+              "question": "When was Python 2.0 released?",
+              "answers": [
+                {
+                  "text": "2000",
+                  "answer_start": 460
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_7",
+              "question": "What paradigms does Python support?",
+              "answers": [
+                {
+                  "text": "structured, object-oriented and functional programming",
+                  "answer_start": 258
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_8",
+              "question": "In what fields is Python widely used?",
+              "answers": [
+                {
+                  "text": "data science, web development, automation, and artificial intelligence",
+                  "answer_start": 691
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "Python_programming_language_9",
+              "question": "What type of language is Python?",
+              "answers": [
+                {
+                  "text": "high-level, general-purpose programming language",
+                  "answer_start": 12
+                }
+              ],
+              "is_impossible": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "World War II",
+      "paragraphs": [
+        {
+          "context": "World War II or the Second World War (1939\u20131945) was a global conflict involving most of the world's nations. It was the deadliest conflict in human history. The war began on 1 September 1939 when Germany invaded Poland. The two main opposing military alliances were the Allies and the Axis powers. Key Allied leaders included Franklin D. Roosevelt, Winston Churchill, and Joseph Stalin. Adolf Hitler led Nazi Germany, the primary Axis power in Europe. The war in Europe ended with the German surrender on 8 May 1945 (VE Day). The war in the Pacific ended after atomic bombs were dropped on Hiroshima and Nagasaki in August 1945, leading to Japan's surrender on 2 September 1945 (VJ Day). An estimated 70 to 85 million people died in the conflict.",
+          "qas": [
+            {
+              "id": "World_War_II_0",
+              "question": "When did World War II begin?",
+              "answers": [
+                {
+                  "text": "1939",
+                  "answer_start": 38
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_1",
+              "question": "What event started World War II in Europe?",
+              "answers": [
+                {
+                  "text": "Germany invaded Poland",
+                  "answer_start": 197
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_2",
+              "question": "When did Germany invade Poland?",
+              "answers": [
+                {
+                  "text": "1 September 1939",
+                  "answer_start": 175
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_3",
+              "question": "Who was the leader of Nazi Germany?",
+              "answers": [
+                {
+                  "text": "Adolf Hitler",
+                  "answer_start": 388
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_4",
+              "question": "What were the two main alliances?",
+              "answers": [
+                {
+                  "text": "Allies and the Axis powers",
+                  "answer_start": 271
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_5",
+              "question": "When did the war in Europe end?",
+              "answers": [
+                {
+                  "text": "8 May 1945",
+                  "answer_start": 506
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_6",
+              "question": "What cities were atomic bombs dropped on?",
+              "answers": [
+                {
+                  "text": "Hiroshima and Nagasaki",
+                  "answer_start": 591
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_7",
+              "question": "Who was the British Prime Minister during WWII?",
+              "answers": [
+                {
+                  "text": "Winston Churchill",
+                  "answer_start": 350
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_8",
+              "question": "When did World War II end?",
+              "answers": [
+                {
+                  "text": "1945",
+                  "answer_start": 43
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "id": "World_War_II_9",
+              "question": "How many people died in World War II approximately?",
+              "answers": [
+                {
+                  "text": "70 to 85 million",
+                  "answer_start": 702
+                }
+              ],
+              "is_impossible": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

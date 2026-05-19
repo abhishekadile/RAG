@@ -1,0 +1,27 @@
+name: Test fallback scripts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install UV
+        run: curl -LsSf https://astral.sh/uv/install.sh | sh
+      - name: Install dependencies
+        run: |
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          uv sync
+      - name: Download data
+        run: uv run python scripts/download_data.py
+      - name: Run all scripts (no API keys — local fallback)
+        run: uv run python scripts/run_all.py
+        env:
+          GEMINI_API_KEY: ""
+          GROQ_API_KEY: ""
+          COHERE_API_KEY: ""

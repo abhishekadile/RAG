@@ -1,0 +1,40 @@
+# Environment
+.env
+.venv/
+venv/
+
+# Vector store
+.chroma_db/
+
+# Downloaded data
+data/squad/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Model cache
+.cache/
+models/
