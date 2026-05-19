@@ -3,6 +3,9 @@
 import json
 from pathlib import Path
 
+import nbformat
+from nbformat.v4 import new_code_cell, new_markdown_cell, new_notebook
+
 NOTEBOOKS = {
     "01_ingestion": {
         "title": "# 01 — Ingestion Pipeline\n\n**Learning objectives:**\n- Load documents from multiple sources\n- Apply chunking strategies\n- Embed and index into ChromaDB",
@@ -108,15 +111,15 @@ NOTEBOOKS = {
 
 
 def make_cell(cell_type, source, metadata=None):
-    return {
-        "cell_type": cell_type,
-        "metadata": metadata or {},
-        "source": source if isinstance(source, list) else source.split("\n"),
-    }
+    """Create a valid nbformat v4 cell (code cells include outputs + execution_count)."""
+    meta = metadata or {}
+    if cell_type == "code":
+        return new_code_cell(source=source, metadata=meta)
+    return new_markdown_cell(source=source, metadata=meta)
 
 
 def build_notebook(spec):
-    cells = [{"cell_type": "markdown", "metadata": {}, "source": spec["title"].split("\n")}]
+    cells = [make_cell("markdown", spec["title"])]
     for section in spec["sections"]:
         if "intro" in section:
             cells.append(make_cell("markdown", section["intro"]))
@@ -132,10 +135,9 @@ def build_notebook(spec):
                     metadata={"jupyter": {"source_hidden": True}},
                 )
             )
-    return {
-        "nbformat": 4,
-        "nbformat_minor": 5,
-        "metadata": {
+    nb = new_notebook(
+        cells=cells,
+        metadata={
             "kernelspec": {
                 "display_name": "RAG Seminar (Python 3.11)",
                 "language": "python",
@@ -143,8 +145,9 @@ def build_notebook(spec):
             },
             "language_info": {"name": "python", "version": "3.11.0"},
         },
-        "cells": cells,
-    }
+    )
+    nbformat.validate(nb)
+    return nb
 
 
 def main():
@@ -154,7 +157,7 @@ def main():
         nb = build_notebook(spec)
         path = out_dir / f"{name}.ipynb"
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(nb, f, indent=1)
+            nbformat.write(nb, f)
         print(f"Created {path}")
 
 
