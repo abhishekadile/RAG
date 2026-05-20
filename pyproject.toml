@@ -5,7 +5,7 @@ description = "RAG seminar — build a complete RAG system from scratch"
 requires-python = ">=3.11"
 dependencies = [
   # RAG framework
-  "llama-index>=0.11.0",
+  "llama-index-core>=0.11.0,<0.13.0",
   "llama-index-vector-stores-chroma>=0.2.0",
   "llama-index-embeddings-gemini>=0.2.0",
   "llama-index-llms-gemini>=0.3.0",
@@ -17,28 +17,29 @@ dependencies = [
   "llama-index-retrievers-bm25>=0.3.0",
 
   # Vector store
-  "chromadb>=0.5.0",
+  "chromadb>=0.5.0,<0.7.0",
 
   # Embeddings (local fallback)
-  "sentence-transformers>=3.0.0",
+  "sentence-transformers>=3.0.0,<4.0.0",
 
   # Sparse retrieval
   "rank-bm25>=0.2.2",
 
   # Evaluation
-  "ragas>=0.2.0",
+  "ragas~=0.2.0",
 
   # LLM clients
-  "google-generativeai>=0.8.0",
-  "groq>=0.11.0",
-  "cohere>=5.0.0",
-  "openai>=1.40.0",
+  "google-generativeai>=0.8.0,<1.0.0",
+  "groq>=0.11.0,<1.0.0",
+  "cohere>=5.0.0,<6.0.0",
+  "openai>=1.40.0,<2.0.0",
 
   # Frontend
-  "gradio>=5.0.0",
+  "gradio>=4.40.0,<5.0.0",
 
   # Notebooks
   "jupyter>=1.0.0",
+  "jupyterlab>=4.0.0,<5.0.0",
   "ipykernel>=6.0.0",
   "nbformat>=5.0.0",
 

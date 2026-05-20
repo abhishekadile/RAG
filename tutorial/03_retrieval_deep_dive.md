@@ -41,10 +41,10 @@ BM25 score = f(term frequency, document length, corpus statistics)
 
 ## Dense vs sparse vs hybrid
 
-| Method | "When was GW born?" | "February 22, 1732 birth date" | "first US president birth" |
+| Method | "When was Washington born?" | "February 22, 1732 birth date" | "first US president birth" |
 |--------|---------------------|--------------------------------|----------------------------|
 | Dense | Good | Good | Good |
-| BM25 | Good (if "GW" in text) | Excellent (exact date) | Moderate |
+| BM25 | Good (if "Washington" in text) | Excellent (exact date) | Moderate |
 | Hybrid | Best | Best | Best |
 
 ```python

@@ -13,15 +13,21 @@ help:
 
 setup:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
-	uv sync
-	cp -n .env.example .env || true
+	$$HOME/.local/bin/uv sync || uv sync
+	cp -n .env.example .env 2>/dev/null || true
 	uv run python scripts/download_data.py
 
 app:
 	uv run python app/main.py
 
 nb:
-	uv run jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token=''
+	uv run jupyter lab \
+		--ip=0.0.0.0 \
+		--port=8888 \
+		--no-browser \
+		--ServerApp.token='' \
+		--ServerApp.password='' \
+		--ServerApp.allow_origin='*'
 
 test:
 	uv run python scripts/run_all.py

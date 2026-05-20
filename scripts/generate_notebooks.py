@@ -21,11 +21,15 @@ NOTEBOOKS = {
             },
             {
                 "intro": "## Chunk Documents\n\nSplit documents into retrieval-sized chunks.",
-                "exercise": "# ── EXERCISE ──────────────────────────────────────────────────────────────\n# Chunk documents using the 'sentence' strategy.\n# Print the number of nodes created.\n\n# YOUR CODE HERE\nfrom src.ingestion.chunker import chunk_documents\n\nnodes = ???\nprint(f\"Created {???} nodes\")",
-                "solution": "# ── SOLUTION ──────────────────────────────────────────────────────────────\nfrom src.ingestion.chunker import chunk_documents\nfrom src.ingestion.embedder import configure_embed_model\n\nembed_model = configure_embed_model()\nnodes = chunk_documents(documents, strategy=\"sentence\")\nprint(f\"Created {len(nodes)} nodes\")",
+                "exercise": "# ── EXERCISE ──────────────────────────────────────────────────────────────\n# Chunk documents using the 'sentence' strategy.\n# Print the number of nodes created.\n\n# Note: chunk_documents() does NOT need embed_model for 'sentence' strategy.\n# embed_model is configured in the next cell for the index step.\n\n# YOUR CODE HERE\nfrom src.ingestion.chunker import chunk_documents\n\nnodes = ???\nprint(f\"Created {???} nodes from {len(documents)} documents\")\nprint(f\"\\nFirst node preview:\\n{nodes[0].get_content()[:200]}\")",
+                "solution": "# ── SOLUTION ──────────────────────────────────────────────────────────────\nfrom src.ingestion.chunker import chunk_documents\n\nnodes = chunk_documents(documents, strategy=\"sentence\")\nprint(f\"Created {len(nodes)} nodes from {len(documents)} documents\")\nprint(f\"\\nFirst node preview:\\n{nodes[0].get_content()[:200]}\")",
             },
             {
-                "intro": "## Build Vector Index\n\nEmbed chunks and store in ChromaDB.",
+                "intro": "## Step 3 — Configure Embedding Model\n\nThe embedding model converts text chunks into vectors.\n\n- **With `GEMINI_API_KEY`**: uses `text-embedding-004` (API, higher quality)\n- **Without any key**: uses `all-MiniLM-L6-v2` (local CPU, always works)\n\n`configure_embed_model()` picks the best available option automatically.",
+                "setup": "from src.ingestion.embedder import configure_embed_model\n\nembed_model = configure_embed_model()\nprint(f\"Using: {type(embed_model).__name__}\")",
+            },
+            {
+                "intro": "## Step 4 — Build Vector Index\n\nEmbed chunks and store in ChromaDB.",
                 "exercise": "# ── EXERCISE ──────────────────────────────────────────────────────────────\n# Build a ChromaDB index from the nodes.\n\n# YOUR CODE HERE\nfrom src.retrieval.store import get_or_create_index\n\nindex = ???\nprint(\"Index ready!\")",
                 "solution": "# ── SOLUTION ──────────────────────────────────────────────────────────────\nfrom src.retrieval.store import get_or_create_index\n\nindex = get_or_create_index(nodes=nodes, embed_model=embed_model, force_rebuild=True)\nprint(f\"Index ready with {len(nodes)} nodes!\")",
             },

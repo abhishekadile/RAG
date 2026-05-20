@@ -133,4 +133,4 @@ Tools available to the agent:
 
 **Recommendation:** Start with hybrid retrieval + reranking. Add query rewriting next. Try HyDE if retrieval quality is still low. Consider agentic RAG only for complex use cases.
 
-Try these patterns in [notebook 05](../notebooks/05_advanced.ipynb) and `scripts/05_advanced.py`.
+Try these patterns in `notebooks/05_advanced.ipynb` and `scripts/05_advanced.py`.

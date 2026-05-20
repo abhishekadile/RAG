@@ -12,7 +12,11 @@ from llama_index.core.schema import BaseNode
 from llama_index.retrievers.bm25 import BM25Retriever
 
 from src.config import TOP_K_RETRIEVE
-from src.utils.fallback import get_llm
+
+
+def _effective_top_k(top_k: int, nodes: List[BaseNode]) -> int:
+    """BM25 requires top_k <= corpus size; fallback corpus has only 5 chunks."""
+    return max(1, min(top_k, len(nodes)))
 
 
 def get_dense_retriever(index: VectorStoreIndex, top_k: int = TOP_K_RETRIEVE):
@@ -38,13 +42,18 @@ def get_hybrid_retriever(
         index: VectorStoreIndex (for dense)
         nodes: All nodes (for BM25)
         top_k: Number of results to retrieve
-        mode: Fusion mode for combining results
+        mode: "reciprocal_rerank" (default) or "simple"
 
     Returns:
-        QueryFusionRetriever combining both
+        QueryFusionRetriever combining dense + BM25
     """
+    top_k = _effective_top_k(top_k, nodes)
     dense = VectorIndexRetriever(index=index, similarity_top_k=top_k)
     sparse = BM25Retriever.from_defaults(nodes=nodes, similarity_top_k=top_k)
+
+    # QueryFusionRetriever treats llm=None as "use Settings.llm" (OpenAI default).
+    # MockLLM is never invoked when num_queries=1 — safe with zero API keys.
+    from llama_index.core.llms.mock import MockLLM
 
     return QueryFusionRetriever(
         retrievers=[dense, sparse],
@@ -52,5 +61,5 @@ def get_hybrid_retriever(
         num_queries=1,
         mode=mode,
         use_async=False,
-        llm=get_llm(),
+        llm=MockLLM(max_tokens=256),
     )

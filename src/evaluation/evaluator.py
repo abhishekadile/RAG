@@ -1,15 +1,13 @@
 """
-RAGAS evaluation wrapper.
+RAGAS evaluation wrapper — compatible with ragas ~=0.2.0
 
-Metrics explained:
-  - Faithfulness: Is the answer grounded in the retrieved context?
-  - Answer Relevancy: Does the answer actually address the question?
-  - Context Precision: Are the retrieved chunks relevant?
-  - Context Recall: Did we retrieve the chunks needed to answer?
+Metrics:
+  - Faithfulness:      answer claims supported by context (no hallucination)
+  - Answer Relevancy:  answer addresses the question
+  - Context Precision: retrieved chunks are relevant
+  - Context Recall:    retrieved chunks contain the needed information
 """
 from typing import Dict, List
-
-from datasets import Dataset
 
 
 def evaluate_rag(
@@ -20,56 +18,83 @@ def evaluate_rag(
     llm=None,
     embed_model=None,
 ) -> Dict:
-    """
-    Run RAGAS evaluation on a list of QA pairs.
-
-    Args:
-        questions: List of questions
-        answers: List of generated answers
-        contexts: List of retrieved context lists (one per question)
-        ground_truths: List of ground truth answers
-        llm: LLM for judge-based metrics (uses default if None)
-        embed_model: Embedding model for relevancy metrics
-
-    Returns:
-        Dict with metric scores + per-sample results
-    """
-    from ragas import evaluate
-    from ragas.metrics import (
-        answer_relevancy,
-        context_precision,
-        context_recall,
-        faithfulness,
-    )
-
-    data = {
-        "question": questions,
-        "answer": answers,
-        "contexts": contexts,
-        "ground_truth": ground_truths,
-    }
-    dataset = Dataset.from_dict(data)
-
+    """Run RAGAS evaluation, falling back to simple metrics if unavailable."""
     try:
-        result = evaluate(
-            dataset=dataset,
-            metrics=[faithfulness, answer_relevancy, context_precision, context_recall],
-        )
-        scores = result.to_pandas()
-        summary = {
-            "faithfulness": float(scores["faithfulness"].mean()),
-            "answer_relevancy": float(scores["answer_relevancy"].mean()),
-            "context_precision": float(scores["context_precision"].mean()),
-            "context_recall": float(scores["context_recall"].mean()),
-            "per_sample": scores.to_dict(orient="records"),
-        }
-        return summary
+        return _evaluate_with_ragas(questions, answers, contexts, ground_truths)
+    except ImportError:
+        print("  [WARN] RAGAS not installed. Using simple fallback metrics.")
+        from src.evaluation.metrics import compute_simple_metrics
+
+        return compute_simple_metrics(questions, answers, contexts, ground_truths)
     except Exception as e:
         print(f"  [WARN] RAGAS evaluation failed: {e}")
         print("  Falling back to simple string-match metrics...")
         from src.evaluation.metrics import compute_simple_metrics
 
         return compute_simple_metrics(questions, answers, contexts, ground_truths)
+
+
+def _evaluate_with_ragas(
+    questions: List[str],
+    answers: List[str],
+    contexts: List[List[str]],
+    ground_truths: List[str],
+) -> Dict:
+    """Internal: handles both ragas 0.2.x (new API) and 0.1.x (old API)."""
+    try:
+        # ragas 0.2.x API — metrics are classes, dataset is EvaluationDataset
+        from ragas import EvaluationDataset, SingleTurnSample, evaluate
+        from ragas.metrics import (
+            AnswerRelevancy,
+            ContextPrecision,
+            ContextRecall,
+            Faithfulness,
+        )
+
+        samples = [
+            SingleTurnSample(
+                user_input=q,
+                response=a,
+                retrieved_contexts=c,
+                reference=gt,
+            )
+            for q, a, c, gt in zip(questions, answers, contexts, ground_truths, strict=True)
+        ]
+        dataset = EvaluationDataset(samples=samples)
+        result = evaluate(
+            dataset=dataset,
+            metrics=[Faithfulness(), AnswerRelevancy(), ContextPrecision(), ContextRecall()],
+        )
+
+    except (ImportError, AttributeError):
+        # ragas 0.1.x API fallback — metrics are module-level instances
+        from datasets import Dataset
+        from ragas import evaluate
+        from ragas.metrics import (
+            answer_relevancy,
+            context_precision,
+            context_recall,
+            faithfulness,
+        )
+
+        dataset = Dataset.from_dict(
+            {
+                "question": questions,
+                "answer": answers,
+                "contexts": contexts,
+                "ground_truth": ground_truths,
+            }
+        )
+        result = evaluate(
+            dataset=dataset,
+            metrics=[faithfulness, answer_relevancy, context_precision, context_recall],
+        )
+
+    scores_df = result.to_pandas()
+    metric_cols = ["faithfulness", "answer_relevancy", "context_precision", "context_recall"]
+    summary = {col: float(scores_df[col].mean()) for col in metric_cols if col in scores_df.columns}
+    summary["per_sample"] = scores_df.to_dict(orient="records")
+    return summary
 
 
 def print_eval_summary(scores: Dict):

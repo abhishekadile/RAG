@@ -23,6 +23,16 @@
       "settings": {
         "python.defaultInterpreterPath": ".venv/bin/python",
         "jupyter.kernelProviderPriority": ["ms-toolsai.jupyter-local"],
+        "jupyter.notebookFileRoot": "${workspaceFolder}",
+        "notebook.kernelProviderAssociations": [
+          {
+            "viewType": "jupyter-notebook",
+            "kernelProvider": "ms-toolsai.jupyter"
+          }
+        ],
+        "workbench.editorAssociations": {
+          "*.ipynb": "jupyter-notebook"
+        },
         "editor.formatOnSave": true
       }
     }

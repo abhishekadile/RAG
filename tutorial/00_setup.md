@@ -71,12 +71,19 @@ Google AI Studio
 3. Go to **API Keys** → **Create API Key**
 4. Copy the key
 
-## Step 5: Get a Cohere API key (optional)
+## Step 5: Get a Cohere API key (optional — neural reranking)
 
-1. Visit [dashboard.cohere.com](https://dashboard.cohere.com)
-2. Sign up for a free account
-3. Go to **API Keys** → **Create Trial Key**
-4. Copy the key
+**URL:** https://dashboard.cohere.com
+
+1. Go to `dashboard.cohere.com`
+2. Sign up with email, Google, or GitHub (no credit card)
+3. Your **Trial key is automatically created** — no button to click
+4. Go to **API Keys** in the left sidebar to view and copy it
+
+Gives you access to: Rerank 3.5, Embed 4, Command R+
+Free tier: 1,000 API calls/month, resets monthly.
+
+> Trial key is for non-commercial/educational use — exactly what this seminar needs.
 
 ## Step 6: Add keys to `.env`
 
@@ -131,8 +138,9 @@ Select the kernel: **RAG Seminar (Python 3.11)**.
 | Ollama fallback is slow | Set `GEMINI_API_KEY` or `GROQ_API_KEY` |
 | Jupyter kernel not found | Run post-create script: `bash .devcontainer/post-create.sh` |
 | Port 7860 not opening | Run `make app` and check forwarded ports panel |
+| Notebook shows raw JSON | Close the tab, reopen via **Open With → Jupyter Notebook**, or run `make nb` |
 
 ## Next steps
 
-- Start with [notebook 01](../notebooks/01_ingestion.ipynb)
+- Start with `notebooks/01_ingestion.ipynb`
 - Read [What is RAG?](01_what_is_rag.md)
